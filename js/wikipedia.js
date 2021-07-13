@@ -14,7 +14,6 @@ const params = {
   action: "query",
   generator: "search",
   grnnamespace: 0,
-  grnlimit: 20,
   prop: "info|extracts",
   inprop: "url",
   exchars: "200",

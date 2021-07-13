@@ -54,3 +54,8 @@
 div.errorContainer {
   display: none;
 }
+
+.pv2 {
+  padding-top: .7rem;
+  padding-bottom: .6rem;
+}

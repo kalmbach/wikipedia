@@ -51,7 +51,10 @@ const processResponse = (response) => {
 
   Object.keys(pages).forEach((pageId) => {
     const outerDiv = document.createElement("div");
-    outerDiv.setAttribute("class", "ba b--light-red w-25 pa2 ma2");
+    outerDiv.setAttribute(
+      "class",
+      "ba b--light-red w-100 w-40-m w-25-ns pa2 ma2"
+    );
 
     const link = document.createElement("a");
     const canonicalurl = pages[pageId].canonicalurl;

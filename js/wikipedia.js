@@ -5,6 +5,8 @@ const errorMessage = document.getElementById("errorMessage");
 const errorContainer = document.getElementById("errorContainer");
 const resultsContainer = document.getElementById("resultsContainer");
 
+let isSearching = false;
+
 const endpoint = "https://es.wikipedia.org/w/api.php?";
 const params = {
   origin: "*",
@@ -44,6 +46,16 @@ const clearError = () => {
   errorContainer.style.display = "none";
 };
 
+const toggleSearching = () => {
+  if (isSearching) {
+    isSearching = false;
+    submit.value = "Search";
+  } else {
+    isSearching = true;
+    submit.value = "Searching...";
+  }
+};
+
 const processResponse = (response) => {
   clearContent(resultsContainer);
 
@@ -80,10 +92,11 @@ const search = (e) => {
 
   const userInput = input.value;
 
-  if (isEmpty(userInput)) {
+  if (isEmpty(userInput) || isSearching) {
     return;
   }
 
+  toggleSearching();
   params.gsrsearch = userInput;
 
   const stringParams = [];
@@ -97,6 +110,8 @@ const search = (e) => {
 
   wikiReq.onreadystatechange = function (e) {
     if (wikiReq.readyState == 4) {
+      toggleSearching();
+
       if (wikiReq.status == 200) {
         const response = JSON.parse(wikiReq.responseText);
 

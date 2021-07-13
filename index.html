@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA=Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" conent="Jorge Kalmbach">
+    <meta name="description" content="Wikipedia">
+    <title>Wikipedia</title>
+
+    <link rel="stylesheet" type="text/css" href="css/tachyons.min.css">
+    <link rel="icon" href="data:;base64,=">
+
+  </head>
+  <body class="inconsolata pa0">
+    <div class="center tc ma5">
+      <header class="overflow-hidden">
+        <img src="img/wikipedia-logo.png" alt="Wikipedia Logo" width="300"/>
+        <h1 class="ma1 light-red" style="font-size:4rem;">Wikipedia</h1>
+        <div class="f4 gray">by Jorge Kalmbach</div>
+      </header>
+    </div>
+    <div class="center tc ma5">
+      <form id="form" class="measure center">
+        <div class="mt3">
+          <input class="pa2 input-reset ba bg-transparent outline-0 w-100 gray" type="text" name="query" id="input">
+          <input class="ma2 light-red b ph3 pv2 input-reset ba b--light-red bg-transparent grow pointer f6 dib" type="submit" value="search" id="submit">
+        </div>
+      </form>
+    </div>
+    <div id="errorContainer" class="errorContainer flex items-center justify-center pa4 bg-light-red white f4">
+      <p id="errorMessage" class="lh-title ml3"></p>
+    </div>
+    <div id="resultsContainer" class="flex flex-wrap justify-center tc">
+    </div>
+  </body>
+  <script src="js/axios.min.js"></script>
+  <script src="js/wikipedia.js"></script> 
+</html>

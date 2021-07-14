@@ -7,7 +7,9 @@ const resultsContainer = document.getElementById("resultsContainer");
 
 let isSearching = false;
 
-const endpoint = "https://es.wikipedia.org/w/api.php?";
+const protocol = "https://";
+const endpoint = ".wikipedia.org/w/api.php?";
+
 const params = {
   origin: "*",
   format: "json",
@@ -91,6 +93,9 @@ const search = (e) => {
 
   const userInput = input.value;
 
+  const langInput = document.querySelector("input[name='language']:checked");
+  const userLang = langInput.value;
+
   if (isEmpty(userInput) || isSearching) {
     return;
   }
@@ -104,8 +109,9 @@ const search = (e) => {
   });
 
   const wikiReq = new XMLHttpRequest();
+  const apiUrl = `${protocol}${userLang}${endpoint}${stringParams.join("&")}`;
 
-  wikiReq.open("GET", `${endpoint}${stringParams.join("&")}`, true);
+  wikiReq.open("GET", apiUrl, true);
 
   wikiReq.onreadystatechange = function (e) {
     if (wikiReq.readyState == 4) {

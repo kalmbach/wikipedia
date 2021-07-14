@@ -100,6 +100,7 @@ const search = (e) => {
     return;
   }
 
+  clearError();
   toggleSearching();
   params.gsrsearch = userInput;
 
